@@ -1,1 +1,41 @@
 version: '3'
+
+services:
+  # Core
+  be-core:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run be-core:dev:docker
+    ports:
+      - 4201:4200
+
+  # Service 1
+  service-1:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run service-1:dev:docker
+    ports:
+      - 4202:4200
+
+  # Service 2
+  service-2:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run service-2:dev:docker
+    ports:
+      - 4203:4200
+
+  # Service 3
+  service-3:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run service-3:dev:docker
+    ports:
+      - 4204:4200
+
+volumes:
+  mono-node-modules: null
